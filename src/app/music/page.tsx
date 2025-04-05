@@ -121,70 +121,76 @@ export default function MusicPage() {
       <div className="grid-overlay" />
       
       <div className="relative z-10 h-screen flex flex-col">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 w-full">
+        <div className="max-w-3xl mx-auto px-1 sm:px-6 lg:px-8 pt-8 sm:pt-20 w-full">
           {/* Header */}
-          <h1 className="text-5xl md:text-7xl font-heading text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-heading text-center mb-1 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
             Releases
           </h1>
-          <p className="text-xl text-center text-white/80 mb-8">
+          <p className="text-base sm:text-xl text-center text-white/80 mb-2 sm:mb-8">
             Explore tracks and albums F/ DJ H.O.P
           </p>
 
-          {/* Platform Navigation */}
-          <div className="sticky top-4 z-30 bg-black/80 backdrop-blur-sm rounded-lg border border-white/10 p-6 mb-8">
-            <div className="flex flex-wrap justify-center gap-6">
-              <FuturisticButton href="#bandcamp" variant="primary" className="min-w-[120px]">
-                BANDCAMP
-              </FuturisticButton>
-              <FuturisticButton href="#youtube" variant="primary" className="min-w-[120px]">
-                YOUTUBE
-              </FuturisticButton>
-              <FuturisticButton href="#apple" variant="primary" className="min-w-[120px]">
-                ITUNES
-              </FuturisticButton>
-            </div>
-          </div>
-
           {/* Site Navigation */}
-          <div className="sticky top-24 z-30 bg-black/80 backdrop-blur-sm rounded-lg border border-white/10 p-6 mb-16">
-            <div className="flex flex-wrap justify-center gap-6">
-              <FuturisticButton href="/" variant="secondary" className="min-w-[120px]">
+          <nav className="sticky top-1 sm:top-4 z-30 mb-4 sm:mb-8">
+            <div className="flex flex-row flex-wrap justify-center gap-2.5 sm:gap-6">
+              <FuturisticButton href="/" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
                 HOME
               </FuturisticButton>
-              <FuturisticButton href="/about" variant="secondary" className="min-w-[120px]">
+              <FuturisticButton href="/about" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
                 ABOUT
               </FuturisticButton>
-              <FuturisticButton href="/contact" variant="secondary" className="min-w-[120px]">
+              <FuturisticButton href="/contact" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
                 CONTACT
               </FuturisticButton>
-              <FuturisticButton href="/discography" variant="secondary" className="min-w-[120px]">
-                DISCOGRAPHY
+              <FuturisticButton href="/discography" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
+                DISCOG
               </FuturisticButton>
             </div>
-          </div>
+          </nav>
+
+          {/* Platform Navigation */}
+          <nav className="sticky top-14 sm:top-24 z-30 mb-4 sm:mb-16">
+            <div className="flex flex-row flex-wrap justify-center gap-2.5 sm:gap-6">
+              <a href="#bandcamp-section" className="min-w-[60px] sm:min-w-[120px]">
+                <FuturisticButton variant="primary" className="w-full text-[8px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4">
+                  BANDCAMP
+                </FuturisticButton>
+              </a>
+              <a href="#youtube-section" className="min-w-[60px] sm:min-w-[120px]">
+                <FuturisticButton variant="primary" className="w-full text-[8px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4">
+                  YOUTUBE
+                </FuturisticButton>
+              </a>
+              <a href="#apple-section" className="min-w-[60px] sm:min-w-[120px]">
+                <FuturisticButton variant="primary" className="w-full text-[8px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4">
+                  ITUNES
+                </FuturisticButton>
+              </a>
+            </div>
+          </nav>
         </div>
 
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto custom-scrollbar">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="max-w-3xl mx-auto px-1 sm:px-6 lg:px-8 pb-8 sm:pb-20">
             {/* Release List */}
-            <div className="space-y-12">
+            <div className="space-y-6 sm:space-y-16">
               {/* Bandcamp Section */}
-              <section id="bandcamp" className="space-y-6">
-                <h2 className="text-3xl font-heading text-primary">Bandcamp Releases</h2>
+              <section id="bandcamp-section" className="space-y-3 sm:space-y-8">
+                <h2 className="text-xl sm:text-3xl font-heading text-primary">Bandcamp Releases</h2>
                 {filterByPlatform('bandcamp')?.map((release) => (
                   <div 
                     key={release.id} 
-                    className="bg-black/40 backdrop-blur-lg rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 p-6"
+                    className="bg-black/40 backdrop-blur-lg rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 p-2 sm:p-6"
                   >
-                    <div className="flex flex-col gap-4">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-2xl font-heading text-primary">{release.title}</h3>
-                        <span className="text-sm text-white/60">{release.year}</span>
+                    <div className="flex flex-col gap-1.5 sm:gap-4">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-lg sm:text-2xl font-heading text-primary">{release.title}</h3>
+                        <span className="text-[10px] sm:text-sm text-white/60">{release.year}</span>
                       </div>
-                      <p className="text-sm text-white/60">{release.type}</p>
+                      <p className="text-[10px] sm:text-sm text-white/60">{release.type}</p>
                       
-                      <div className="w-full h-[42px] bg-[#333333] rounded overflow-hidden">
+                      <div className="w-full h-[60px] sm:h-[42px] bg-[#333333] rounded overflow-hidden">
                         <iframe 
                           src={release.streamingLinks.bandcampEmbed}
                           seamless
@@ -195,12 +201,17 @@ export default function MusicPage() {
                         </iframe>
                       </div>
 
-                      <p className="text-white/80">{release.description}</p>
+                      <p className="text-xs sm:text-base text-white/80">{release.description}</p>
                       
                       <div className="flex justify-end">
-                        <FuturisticButton href="#" variant="primary">
-                          Share
-                        </FuturisticButton>
+                        <a 
+                          href={release.streamingLinks.bandcamp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs sm:text-base text-primary hover:text-primary-hover transition-colors"
+                        >
+                          View on Bandcamp →
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -208,74 +219,63 @@ export default function MusicPage() {
               </section>
 
               {/* YouTube Section */}
-              <section id="youtube" className="space-y-6">
-                <h2 className="text-3xl font-heading text-primary">Videos</h2>
+              <section id="youtube-section" className="space-y-3 sm:space-y-8">
+                <h2 className="text-xl sm:text-3xl font-heading text-primary">YouTube Videos</h2>
                 {filterByPlatform('youtube')?.map((release) => (
                   <div 
                     key={release.id} 
-                    className="bg-black/40 backdrop-blur-lg rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 p-6"
+                    className="bg-black/40 backdrop-blur-lg rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 p-2 sm:p-6"
                   >
-                    <div className="flex flex-col gap-4">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-2xl font-heading text-primary">{release.title}</h3>
-                        <span className="text-sm text-white/60">{release.year}</span>
+                    <div className="flex flex-col gap-1.5 sm:gap-4">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-lg sm:text-2xl font-heading text-primary">{release.title}</h3>
+                        <span className="text-[10px] sm:text-sm text-white/60">{release.year}</span>
                       </div>
-                      <p className="text-sm text-white/60">{release.type}</p>
+                      <p className="text-[10px] sm:text-sm text-white/60">{release.type}</p>
                       
-                      <div className="w-full aspect-video bg-[#333333] rounded overflow-hidden">
+                      <div className="aspect-video w-full rounded overflow-hidden">
                         <iframe 
                           src={release.streamingLinks.youtube}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           className="w-full h-full border-0"
                           title={release.title}
                         />
                       </div>
 
-                      <p className="text-white/80">{release.description}</p>
-                      
-                      <div className="flex justify-end">
-                        <FuturisticButton href="#" variant="primary">
-                          Share
-                        </FuturisticButton>
-                      </div>
+                      <p className="text-xs sm:text-base text-white/80">{release.description}</p>
                     </div>
                   </div>
                 ))}
               </section>
 
               {/* Apple Music Section */}
-              <section id="apple" className="space-y-6">
-                <h2 className="text-3xl font-heading text-primary">iTunes Releases</h2>
+              <section id="apple-section" className="space-y-3 sm:space-y-8">
+                <h2 className="text-xl sm:text-3xl font-heading text-primary">iTunes Releases</h2>
                 {filterByPlatform('apple')?.map((release) => (
                   <div 
                     key={release.id} 
-                    className="bg-black/40 backdrop-blur-lg rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 p-6"
+                    className="bg-black/40 backdrop-blur-lg rounded-lg overflow-hidden border border-white/10 hover:border-primary/50 transition-all duration-300 p-2 sm:p-6"
                   >
-                    <div className="flex flex-col gap-4">
-                      <div className="flex justify-between items-start mb-2">
-                        <h3 className="text-2xl font-heading text-primary">{release.title}</h3>
-                        <span className="text-sm text-white/60">{release.year}</span>
+                    <div className="flex flex-col gap-1.5 sm:gap-4">
+                      <div className="flex justify-between items-start">
+                        <h3 className="text-lg sm:text-2xl font-heading text-primary">{release.title}</h3>
+                        <span className="text-[10px] sm:text-sm text-white/60">{release.year}</span>
                       </div>
-                      <p className="text-sm text-white/60">{release.type}</p>
+                      <p className="text-[10px] sm:text-sm text-white/60">{release.type}</p>
                       
-                      <div className="w-full h-[150px] bg-[#333333] rounded overflow-hidden">
+                      <div className="w-full h-[150px] rounded overflow-hidden">
                         <iframe 
-                          src={release.streamingLinks.appleMusic}
-                          allow="autoplay *; encrypted-media *;"
+                          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                          frameBorder="0" 
+                          height="150" 
+                          style={{width: '100%', maxWidth: '660px', overflow: 'hidden', borderRadius: '10px'}}
                           sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-                          className="w-full h-full border-0"
-                          title={release.title}
+                          src={release.streamingLinks.appleMusic}
                         />
                       </div>
 
-                      <p className="text-white/80">{release.description}</p>
-                      
-                      <div className="flex justify-end">
-                        <FuturisticButton href="#" variant="primary">
-                          Share
-                        </FuturisticButton>
-                      </div>
+                      <p className="text-xs sm:text-base text-white/80">{release.description}</p>
                     </div>
                   </div>
                 ))}

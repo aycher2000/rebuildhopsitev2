@@ -23,30 +23,34 @@ export default function Home() {
 
       {/* Main content */}
       <div className="relative z-10 text-center mt-[-5vh]">
-        {/* Logo */}
-        <div className="mb-4 relative w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden border-2 border-primary/30 animate-flip">
-          <Image
-            src="/images/logo.webp"
-            alt="DJ HOP Logo"
-            fill
-            className="object-cover"
-            priority
-          />
+        {/* Title section with logo */}
+        <div className="flex items-center justify-center gap-4 mb-4">
+          {/* Logo */}
+          <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-primary/30 animate-flip">
+            <Image
+              src="/images/logo.webp"
+              alt="DJ HOP Logo"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
+            DJ HOP
+          </h1>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-heading mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
-          DJ HOP
-        </h1>
         <p className="text-xl md:text-2xl mb-10 text-white/80 font-light tracking-wider">
           Turntablist | Producer | Artist
         </p>
         
         {/* Navigation buttons */}
-        <div className="flex gap-6 justify-center">
-          <FuturisticButton href="/music" variant="primary">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4">
+          <FuturisticButton href="/music" variant="primary" className="w-full sm:w-auto">
             Explore Music
           </FuturisticButton>
-          <FuturisticButton href="/contact" variant="secondary">
+          <FuturisticButton href="/contact" variant="secondary" className="w-full sm:w-auto">
             Book Now
           </FuturisticButton>
         </div>
