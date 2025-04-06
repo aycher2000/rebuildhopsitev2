@@ -96,6 +96,17 @@ const releases = [
     streamingLinks: {
       youtube: 'https://www.youtube.com/embed/1oAwvFcS8bg?si=UuCw_72ZyK2-Yh82'
     }
+  },
+  {
+    id: 9,
+    title: 'Mr. Brady "Vibe Killer"',
+    year: '2024',
+    type: 'Video - Vibe Killer',
+    description: 'Cuts by DJ H.O.P',
+    platform: 'youtube',
+    streamingLinks: {
+      youtube: 'https://www.youtube.com/embed/Viydm90QIq0?si=SJb3ofmo1SuERkij'
+    }
   }
 ];
 
