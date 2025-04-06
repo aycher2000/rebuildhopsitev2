@@ -63,7 +63,7 @@ const releases: Release[] = [
 
 export default function DiscographyPage() {
   return (
-    <div className="min-h-screen futuristic-bg text-white relative overflow-hidden">
+    <div className="min-h-screen futuristic-bg text-white relative overflow-hidden pb-20">
       {/* Background image */}
       <Image
         src="/images/backround.png"
@@ -77,67 +77,44 @@ export default function DiscographyPage() {
       {/* Grid overlay */}
       <div className="grid-overlay" />
       
-      <div className="relative z-10 h-screen flex flex-col">
-        <div className="max-w-5xl mx-auto px-1 sm:px-6 lg:px-8 pt-8 sm:pt-20 w-full">
+      <div className="relative z-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-20">
           {/* Header */}
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-heading text-center mb-1 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
             Discography
           </h1>
-          <p className="text-base sm:text-xl text-center text-white/80 mb-2 sm:mb-8">
+          <p className="text-base sm:text-xl text-center text-white/80 mb-8 sm:mb-16">
             Physical Releases & Vinyl Collection
           </p>
 
-          {/* Site Navigation */}
-          <nav className="sticky top-1 sm:top-4 z-30 mb-4 sm:mb-8">
-            <div className="flex flex-row flex-wrap justify-center gap-2.5 sm:gap-6">
-              <FuturisticButton href="/" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                HOME
-              </FuturisticButton>
-              <FuturisticButton href="/about" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                ABOUT
-              </FuturisticButton>
-              <FuturisticButton href="/music" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                MUSIC
-              </FuturisticButton>
-              <FuturisticButton href="/contact" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                CONTACT
-              </FuturisticButton>
-            </div>
-          </nav>
-        </div>
-
-        {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar">
-          <div className="max-w-5xl mx-auto px-1 sm:px-6 lg:px-8 pb-8 sm:pb-20">
-            {/* Release Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {releases.map((release) => (
-                <div 
-                  key={release.id}
-                  className="bg-black/40 backdrop-blur-sm rounded-lg overflow-hidden border border-primary/70 hover:border-primary/30 transition-all duration-300 max-w-[300px] mx-auto w-full"
-                >
-                  <div className="aspect-square relative overflow-hidden p-8">
-                    <div className="relative w-full h-full">
-                      <Image
-                        src={release.image}
-                        alt={release.title}
-                        fill
-                        className="object-contain object-center hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                  </div>
-                  <div className="p-3">
-                    <div className="w-full h-[1px] bg-white/10 mb-3"></div>
-                    <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-base sm:text-lg font-heading text-primary">{release.title}</h3>
-                      <span className="text-xs text-white/60">{release.year}</span>
-                    </div>
-                    <p className="text-xs text-white/60 mb-1">{release.format}</p>
-                    <p className="text-xs sm:text-sm text-white/80">{release.description}</p>
+          {/* Release Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            {releases.map((release) => (
+              <div 
+                key={release.id}
+                className="bg-black/40 backdrop-blur-sm rounded-lg overflow-hidden border border-primary/30 hover:border-primary/70 transition-all duration-300 w-full"
+              >
+                <div className="aspect-square relative overflow-hidden p-8">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={release.image}
+                      alt={release.title}
+                      fill
+                      className="object-contain object-center hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 </div>
-              ))}
-            </div>
+                <div className="p-4">
+                  <div className="w-full h-[1px] bg-white/10 mb-3"></div>
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-base sm:text-lg font-heading text-primary">{release.title}</h3>
+                    <span className="text-xs text-white/60">{release.year}</span>
+                  </div>
+                  <p className="text-xs text-white/60 mb-2">{release.format}</p>
+                  <p className="text-xs sm:text-sm text-white/80">{release.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

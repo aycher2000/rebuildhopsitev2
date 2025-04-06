@@ -137,30 +137,12 @@ export default function MusicPage() {
           <h1 className="text-3xl sm:text-5xl md:text-7xl font-heading text-center mb-1 sm:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
             Releases
           </h1>
-          <p className="text-base sm:text-xl text-center text-white/80 mb-2 sm:mb-8">
+          <p className="text-base sm:text-xl text-center text-white/80 mb-8 sm:mb-16">
             Explore tracks and albums F/ DJ H.O.P
           </p>
 
-          {/* Site Navigation */}
-          <nav className="sticky top-1 sm:top-4 z-30 mb-4 sm:mb-8">
-            <div className="flex flex-row flex-wrap justify-center gap-2.5 sm:gap-6">
-              <FuturisticButton href="/" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                HOME
-              </FuturisticButton>
-              <FuturisticButton href="/about" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                ABOUT
-              </FuturisticButton>
-              <FuturisticButton href="/contact" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                CONTACT
-              </FuturisticButton>
-              <FuturisticButton href="/discography" variant="secondary" className="text-[9px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4 min-w-[64px] sm:min-w-[120px]">
-                DISCOG
-              </FuturisticButton>
-            </div>
-          </nav>
-
           {/* Platform Navigation */}
-          <nav className="sticky top-14 sm:top-24 z-30 mb-4 sm:mb-16">
+          <nav className="sticky top-1 sm:top-4 z-30 mb-4 sm:mb-16">
             <div className="flex flex-row flex-wrap justify-center gap-2.5 sm:gap-6">
               <a href="#bandcamp-section" className="min-w-[60px] sm:min-w-[120px]">
                 <FuturisticButton variant="primary" className="w-full text-[8px] sm:text-base py-0.5 sm:py-3 px-1.5 sm:px-4">

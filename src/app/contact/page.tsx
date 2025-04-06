@@ -1,6 +1,41 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import FuturisticButton from '@/components/FuturisticButton';
+
+const socialLinks = [
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/chrishopbarton/',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <circle cx="12" cy="12" r="4.5" />
+        <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
+    name: 'X',
+    url: 'https://x.com/DJHOP619',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M22 4L12 14M12 14L7 19M12 14L19 19M12 14L5 4" />
+      </svg>
+    )
+  },
+  {
+    name: 'Email',
+    url: 'mailto:djhop@hoponthecut.com',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <rect x="2" y="4" width="20" height="16" rx="3" />
+        <path d="M22 7L12 14L2 7" />
+      </svg>
+    )
+  }
+];
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -25,17 +60,50 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-center mb-12">Contact</h1>
+    <div className="min-h-screen futuristic-bg text-white relative overflow-hidden">
+      {/* Background image */}
+      <Image
+        src="/images/backround.png"
+        alt="Background"
+        fill
+        className="object-cover object-center"
+        priority
+        quality={100}
+      />
+      
+      {/* Grid overlay */}
+      <div className="grid-overlay" />
+      
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl animate-pulse z-[2]" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl animate-pulse delay-1000 z-[2]" />
+
+      {/* Main content */}
+      <div className="relative z-10 container mx-auto px-4 py-20">
+        <h1 className="text-4xl sm:text-6xl font-heading text-center mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
+          Contact
+        </h1>
+
+        {/* Navigation buttons */}
+        <div className="flex flex-row gap-6 justify-center px-4 mb-12">
+          <FuturisticButton href="/music" variant="secondary" className="text-[11px] sm:text-base py-1.5 sm:py-3 px-4 sm:px-6">
+            Music
+          </FuturisticButton>
+          <FuturisticButton href="/discography" variant="secondary" className="text-[11px] sm:text-base py-1.5 sm:py-3 px-4 sm:px-6">
+            Discog
+          </FuturisticButton>
+          <FuturisticButton href="/about" variant="primary" className="text-[11px] sm:text-base py-1.5 sm:py-3 px-4 sm:px-6">
+            About
+          </FuturisticButton>
+        </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-semibold mb-6">Send a Message</h2>
+          <div className="bg-black/40 backdrop-blur-sm rounded-lg border border-primary/30 p-8">
+            <h2 className="text-2xl font-heading mb-6 text-primary">Send a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1">
                   Name
                 </label>
                 <input
@@ -44,13 +112,13 @@ const ContactPage = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
                   required
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
                   Email
                 </label>
                 <input
@@ -59,13 +127,13 @@ const ContactPage = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
                   required
                 />
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-1">
                   Subject
                 </label>
                 <select
@@ -73,7 +141,7 @@ const ContactPage = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
                   required
                 >
                   <option value="">Select a subject</option>
@@ -85,7 +153,7 @@ const ContactPage = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1">
                   Message
                 </label>
                 <textarea
@@ -94,14 +162,14 @@ const ContactPage = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-black focus:border-transparent"
+                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
                   required
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-black text-white py-3 rounded-md hover:bg-gray-800 transition-colors"
+                className="w-full bg-primary/20 border border-primary/30 text-white py-3 rounded-md hover:bg-primary/30 transition-colors backdrop-blur-sm"
               >
                 Send Message
               </button>
@@ -110,45 +178,35 @@ const ContactPage = () => {
 
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+            <div className="bg-black/40 backdrop-blur-sm rounded-lg border border-primary/30 p-8">
+              <h2 className="text-2xl font-heading mb-6 text-primary">Get in Touch</h2>
               <div className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-medium">Email</h3>
-                  <p className="text-gray-600">contact@djhop.com</p>
+                  <h3 className="text-lg font-medium text-white/80">Email</h3>
+                  <p className="text-primary">djhop@hoponthecut.com</p>
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium">Booking</h3>
-                  <p className="text-gray-600">booking@djhop.com</p>
-                </div>
-                <div>
-                  <h3 className="text-lg font-medium">Management</h3>
-                  <p className="text-gray-600">management@djhop.com</p>
+                  <h3 className="text-lg font-medium text-white/80">Booking</h3>
+                  <p className="text-primary">djhop@hoponthecut.com</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-semibold mb-6">Social Media</h2>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-600 hover:text-black">
-                  <span className="sr-only">Instagram</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  <span className="sr-only">Twitter</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                  </svg>
-                </a>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  <span className="sr-only">SoundCloud</span>
-                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22.5c-5.799 0-10.5-4.701-10.5-10.5S6.201 1.5 12 1.5 22.5 6.201 22.5 12 17.799 22.5 12 22.5zm0-18c-4.136 0-7.5 3.364-7.5 7.5s3.364 7.5 7.5 7.5 7.5-3.364 7.5-7.5-3.364-7.5-7.5-7.5zm0 13.5c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
-                  </svg>
-                </a>
+            <div className="bg-black/40 backdrop-blur-sm rounded-lg border border-primary/30 p-8 text-center">
+              <h2 className="text-2xl font-heading mb-6 text-primary">Social Media</h2>
+              <div className="flex justify-center gap-6">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary/70 hover:text-primary transition-all duration-300 transform hover:scale-110"
+                  >
+                    <span className="sr-only">{link.name}</span>
+                    {link.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

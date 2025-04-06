@@ -69,25 +69,12 @@ export default function Home() {
       {/* Main content */}
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Hero Section */}
-        <div className="flex-1 flex items-center justify-center px-4">
+        <div className="flex-1 flex items-start justify-center px-4 pt-12 md:pt-16">
           <div className="text-center">
-            {/* Title section with logo */}
-            <div className="flex items-center justify-center gap-4 mb-4">
-              {/* Logo */}
-              <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden border-2 border-primary/30 animate-flip">
-                <Image
-                  src="/images/logo.webp"
-                  alt="DJ HOP Logo"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-
-              <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient">
-                DJ HOP
-              </h1>
-            </div>
+            {/* Title section */}
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading bg-clip-text text-transparent bg-gradient-to-r from-primary via-white to-primary animate-gradient mb-4">
+              DJ HOP
+            </h1>
 
             <div className="flex justify-center items-center w-full mb-6">
               <TypewriterText 

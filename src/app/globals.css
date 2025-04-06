@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: #00ffff;
+  --color-primary-hover: #66ffff;
+}
+
 body {
   background-color: #000000;
   color: #ffffff;
@@ -87,16 +92,16 @@ body {
 }
 
 @keyframes flip {
-  0%, 15%, 100% {
+  0%, 5%, 100% {
     transform: perspective(1000px) rotateY(0deg);
   }
-  25%, 35% {
+  15%, 25% {
     transform: perspective(1000px) rotateY(360deg);
   }
 }
 
 .animate-flip {
-  animation: flip 8s linear infinite;
+  animation: flip 3s linear infinite;
   transform-style: preserve-3d;
   backface-visibility: visible;
 }
