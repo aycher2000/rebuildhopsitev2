@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DJ HOP Official Website
 
-## Getting Started
+A modern, futuristic website showcasing DJ H.O.P's music, discography, and journey in turntablism. Built with Next.js, Tailwind CSS, and modern web technologies.
 
-First, run the development server:
+## 🎧 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Dynamic Home Page**
+  - Animated logo and title
+  - Interactive navigation
+  - Biography with styled text sections
+  - Featured tracks with Bandcamp integration
+  - Social media links (Instagram, X, Email)
+  - Responsive design for all devices
+
+- **Music Page**
+  - Bandcamp track embeddings
+  - YouTube video integration
+  - iTunes/Apple Music integration
+  - Sticky navigation for platforms
+  - Mobile-optimized layout
+
+- **Discography Page**
+  - Visual showcase of physical releases
+  - Album/EP cards with hover effects
+  - Chronological display of releases
+  - Responsive grid layout
+
+## 🛠 Tech Stack
+
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS
+- **Animations**: Custom CSS animations
+- **Components**: Custom React components
+- **Media**: Optimized image loading with Next.js Image
+- **Deployment**: [Add deployment platform]
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx              # Home page
+│   ├── music/               
+│   │   └── page.tsx         # Music showcase page
+│   ├── discography/
+│   │   └── page.tsx         # Discography page
+│   └── globals.css          # Global styles
+├── components/
+│   └── FuturisticButton.tsx # Custom button component
+└── public/
+    └── images/              # Image assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone [repository-url]
+   cd [project-directory]
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Open in browser**
+   Navigate to `http://localhost:3000`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 💫 Styling Guide
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Color Scheme**
+  - Primary: Cyan (#00ffff)
+  - Secondary: Custom gradients
+  - Text: White with varying opacity
+  - Backgrounds: Black with transparency
 
-## Deploy on Vercel
+- **Components**
+  - FuturisticButton: Custom component for navigation
+  - Card layouts: Consistent border and hover effects
+  - Text sections: Left border highlights with hover effects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Animations**
+  - Logo flip animation
+  - Gradient text animations
+  - Hover transitions
+  - Background pulse effects
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔄 Content Updates
+
+To update content:
+
+1. **Music Page**
+   - Add new tracks in the `releases` array in `music/page.tsx`
+   - Support for Bandcamp, YouTube, and iTunes embeds
+
+2. **Discography**
+   - Add new releases in the `releases` array in `discography/page.tsx`
+   - Include images in `public/images/`
+
+3. **Home Page**
+   - Update biography text in the story section
+   - Modify featured tracks in the `featuredReleases` array
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Breakpoints:
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+  - xl: 1280px
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📄 License
+
+[Add License Information]
+
+## 🔗 Links
+
+- Website: [Add live URL]
+- Instagram: [@chrishopbarton](https://www.instagram.com/chrishopbarton/)
+- X/Twitter: [@DJHOP619](https://x.com/DJHOP619)
+- Contact: djhop@hoponthecut.com
