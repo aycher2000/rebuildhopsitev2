@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import FuturisticButton from '@/components/FuturisticButton';
+import TypewriterText from '@/components/TypewriterText';
 
 const socialLinks = [
   {
@@ -88,9 +89,12 @@ export default function Home() {
               </h1>
             </div>
 
-            <p className="text-xl md:text-2xl mb-6 text-white/80 font-light tracking-wider">
-              Turntablist | Producer | Artist
-            </p>
+            <div className="flex justify-center items-center w-full mb-6">
+              <TypewriterText 
+                text="Turntablist | Producer | Artist"
+                className="text-xl md:text-2xl text-white/80 font-light tracking-wider w-full"
+              />
+            </div>
 
             {/* Navigation buttons moved up */}
             <div className="flex flex-row gap-6 justify-center px-4 mb-8">

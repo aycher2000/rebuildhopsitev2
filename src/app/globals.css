@@ -126,3 +126,29 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) rgba(0, 0, 0, 0.3);
 }
+
+/* Typewriter effect */
+.typewriter {
+  display: inline-block;
+}
+
+.typewriter h1 {
+  overflow: hidden;
+  border-right: 0.15em solid #00ffff;
+  white-space: nowrap;
+  margin: 0;
+  width: 0;
+  animation: 
+    typing 3.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00ffff }
+}
