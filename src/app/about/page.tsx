@@ -155,16 +155,23 @@ export default function AboutPage() {
                 full: (
                   <div className="space-y-6">
                     <div>
-                      <h3 className="text-xl font-bold mb-2">The Evolution of Turntablism</h3>
-                      <p>Exploring how the art form has evolved from its roots in hip-hop to its current place in modern music...</p>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">The Art of Sample Flipping</h3>
-                      <p>Breaking down the creative process behind transforming classic records into fresh beats...</p>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Battle DJing: Then and Now</h3>
-                      <p>Reflecting on how DJ battles have changed over the years and what they mean for the culture...</p>
+                      <h3 className="text-2xl font-bold text-[#00ffff] mb-4">🔥 Flare Scratch – Quick Breakdown Sun April 6 2025</h3>
+                      <p className="mb-4">
+                        If you're into turntablism, you've probably heard about the flare scratch—a slick, advanced technique that adds serious style to your cuts. Here's a quick breakdown for those who want to try it or just see what it's about.
+                      </p>
+                      <p className="text-[#00ffff] font-bold mb-2">Start simple:</p>
+                      <ul className="list-disc pl-6 space-y-2 mb-4">
+                        <li>Begin with the <span className="text-[#00ffff] font-bold">crossfader</span> open.</li>
+                        <li>Push the record forward.</li>
+                        <li>In the middle of that sound, do a quick close and open on the <span className="text-[#00ffff] font-bold">crossfader</span>.</li>
+                        <li>Now reverse it: pull the record back and repeat the same click (close/open) in the middle of the sound.</li>
+                      </ul>
+                      <p className="mb-4">
+                        That's one flare. You're basically splitting the sound into two with a single click of the <span className="text-[#00ffff] font-bold">crossfader</span>—clean, crisp, and rhythmic.
+                      </p>
+                      <p className="text-right italic">
+                        Stay Sharp - <span className="text-[#00ffff] font-bold">Dj H.O.P</span>
+                      </p>
                     </div>
                   </div>
                 )
