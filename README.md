@@ -181,3 +181,61 @@ This multi-layered approach ensures the menu works even if one method fails, cre
 - Instagram: [@chrishopbarton](https://www.instagram.com/chrishopbarton/)
 - X/Twitter: [@DJHOP619](https://x.com/DJHOP619)
 - Contact: djhop@hoponthecut.com
+
+## Components
+
+### InfoCard Component
+
+The InfoCard component is a reusable card component that supports collapsible content and optional images. It's used throughout the site for displaying content in a consistent, stylish way.
+
+#### Files
+- `src/components/ui/InfoCard.tsx` - Main component file
+- `src/app/about/page.tsx` - Example usage in the About page
+
+#### Dependencies
+- Next.js Image component
+- Tailwind CSS for styling
+- HTML5 details/summary elements for collapsible functionality
+
+#### Usage Example
+```tsx
+<InfoCard
+  id="my-journey"
+  title="My Journey"
+  image={{
+    src: "/images/your-image.jpg",
+    alt: "Description",
+    height: 500 // optional
+  }}
+  content={{
+    short: "Brief preview text...",
+    full: (
+      <div>
+        <p>Full content here...</p>
+      </div>
+    )
+  }}
+/>
+```
+
+#### Key Features
+- Collapsible content using native HTML details/summary elements
+- Optional image with customizable height
+- Glassy effect with backdrop blur
+- Hover animations
+- Responsive design
+- Customizable styling through className prop
+
+#### Styling
+The component uses Tailwind CSS classes for styling:
+- Background: `bg-black/40` with `backdrop-blur-sm`
+- Border: `border border-[#00ffff]/30` with hover effect
+- Text: Custom font classes and cyan color scheme
+- Animations: Smooth transitions for hover and open states
+
+#### Current Implementation
+The component uses HTML5's native `<details>` and `<summary>` elements for collapsible functionality. The top and bottom toggle buttons are both `<summary>` elements styled to look like plus/minus icons.
+
+#### Known Issues
+- Bottom toggle button may not function correctly in all browsers
+- Multiple summary elements within a single details element may cause unexpected behavior

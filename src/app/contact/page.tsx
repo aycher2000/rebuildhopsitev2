@@ -44,11 +44,38 @@ const ContactPage = () => {
     subject: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Failed to send message. Please try again later.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -101,79 +128,104 @@ const ContactPage = () => {
           {/* Contact Form */}
           <div className="bg-black/40 backdrop-blur-sm rounded-lg border border-primary/30 p-8">
             <h2 className="text-2xl font-heading mb-6 text-primary">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-1">
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  required
+            {status === 'success' ? (
+              <div className="text-center py-8">
+                <div className="text-primary text-2xl mb-4">✓</div>
+                <h3 className="text-xl font-heading mb-2">Message Sent!</h3>
+                <p className="text-white/80">Thank you for your message. I'll get back to you soon.</p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="mt-4 text-primary hover:text-primary/80 transition-colors"
                 >
-                  <option value="">Select a subject</option>
-                  <option value="booking">Booking Inquiry</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="press">Press</option>
-                </select>
+                  Send another message
+                </button>
               </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={4}
-                  className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  required
-                />
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-primary/20 border border-primary/30 text-white py-3 rounded-md hover:bg-primary/30 transition-colors backdrop-blur-sm"
-              >
-                Send Message
-              </button>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-1">
+                    Subject
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                    required
+                  >
+                    <option value="">Select a subject</option>
+                    <option value="booking">Booking Inquiry</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="press">Press</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-4 py-2 bg-black/40 border border-primary/30 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                    required
+                  />
+                </div>
+                
+                {status === 'error' && (
+                  <div className="text-red-400 text-sm">
+                    {errorMessage}
+                  </div>
+                )}
+                
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className={`w-full bg-primary/20 border border-primary/30 text-white py-3 rounded-md transition-colors backdrop-blur-sm ${
+                    status === 'loading' 
+                      ? 'opacity-50 cursor-not-allowed' 
+                      : 'hover:bg-primary/30'
+                  }`}
+                >
+                  {status === 'loading' ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Contact Information */}
