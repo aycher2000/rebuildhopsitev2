@@ -61,8 +61,10 @@ const ContactPage = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error(data.error || 'Failed to send message');
       }
 
       setStatus('success');
@@ -73,8 +75,9 @@ const ContactPage = () => {
         message: '',
       });
     } catch (error) {
+      console.error('Form submission error:', error);
       setStatus('error');
-      setErrorMessage('Failed to send message. Please try again later.');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again later.');
     }
   };
 
